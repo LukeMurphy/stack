@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<meta http-equiv="refresh" content="300; url=../drawing/index.html">
+		<title>---- ------</title>
+		<style>
+			body {
+				padding:0px;
+				background-color:black;
+				margin:0 auto;
+				overflow:hidden;
+				cursor: none;
+			}
+
+			.canvas {
+				cursor: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!-- div id="debug"></div -->
+		<script src="./js/manager.js"></script>
+		<script src="./js/three.min.js"></script>
+		<script src="./js/shaders/CopyShader.js"></script>
+		<script src="./js/shaders/DotScreenShader.js"></script>
+		<script src="./js/shaders/RGBShiftShader.js"></script>
+
+		<script src="./js/postprocessing/EffectComposer.js"></script>
+		<script src="./js/postprocessing/RenderPass.js"></script>
+		<script src="./js/postprocessing/MaskPass.js"></script>
+		<script src="./js/postprocessing/ShaderPass.js"></script>
+		<script src="./js/perspective-webgl.js"></script>
+
+		<script type="text/javascript">
+			function goFullscreen(id) {
+				// Get the element that we want to take into fullscreen mode
+				var element = document.getElementById(id);
+				if (element.mozRequestFullScreen) {
+					element.mozRequestFullScreen();
+				} else if (element.webkitRequestFullScreen) {
+					element.webkitRequestFullScreen();
+				}
+			}
+		</script>
+
+		<!--
+		<button onclick="freeze=(freeze)?false:true; return false">
+			un/freeze
+		</button>
+		<button onclick="goFullscreen('imageContainer'); return false">FULLSCREEN</button>
+		-->
+		<div id="partcontainer">
+			<canvas id="canvas" width="1" height="1"></canvas>
+		</div>
+	</body>
+</html>

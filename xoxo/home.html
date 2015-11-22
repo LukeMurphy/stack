@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+	<!-- based on webgl_geometry_shapes.html and webgl_geometries2.html -->
+	<head>
+		<title>XOs - 3D Planes</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<style>
+			body {
+				font-family: Monospace;
+				background-color: #f0f0f0;
+				margin: 0px;
+			
+			}
+			#info {
+				position: absolute;
+				top: 0px;
+				width: 100%;
+				padding: 5px;
+				text-align: center;
+			}
+
+			#canvasHolder {
+				visibility: visible;
+				display: block;
+
+			}
+		</style>
+
+		<script src="build/three.min.js"></script>
+		<script src="js/curves/NURBSCurve.js"></script>
+		<script src="js/curves/NURBSSurface.js"></script>
+		<script src="js/curves/NURBSUtils.js"></script>
+		<script src="js/controls/OrbitControls.js"></script>
+		<script src="app/random-sequence.js"></script>
+		<script src="app/image-loader.js"></script>
+		<script src="app/xos.js"></script>
+		<script src="app/main.js"></script>
+
+	</head>
+	<body>
+		<div id="canvasHolder">
+			<canvas id="canvas" class="canvas" width=1800 height=1400 ></canvas>
+			<canvas id="canvas2" class="canvas" width=3900 height=3800 ></canvas>
+
+			<canvas id="buffer" class="canvas" width=500 height=500 ></canvas>
+			
+			<canvas id="debug" style="position:absolute; left:100px"></canvas>
+		</div>
+		<div id="info"></div>
+	</body>
+</html>

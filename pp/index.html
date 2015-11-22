@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<title>PornoPainter</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="refresh" content="250; url=/projects/stack/spiral">
+		<meta name="language" content="en" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+
+		<script src="/projects/stack/js/jquery-1.9.1.js"></script>
+		<script src="/projects/stack/js/jquery-ui-1.10.2.custom.js"></script>
+
+		<script>
+			$(function() {
+				var wd = $(window).width()*.95;
+				$('#pp').attr("width", wd);
+				var ht = $(window).height()*.95;
+				$('#pp').attr("height", ht);
+			});
+
+		</script>
+		
+		<style>
+			BODY {
+				background-color:#000000;
+				margin: 0px auto;
+				padding:0px;
+				
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="800" height="600" id="PornoPainter" align="middle">
+			<param name="movie" value="PornoPainter.swf"/>
+			<!--[if !IE]>-->
+			<object type="application/x-shockwave-flash" data="PornoPainter.swf" width="800" height="600" id="pp">
+				<param name="movie" value="PornoPainter.swf"/>
+				<!--<![endif]-->
+				<!--[if !IE]>-->
+			</object>
+			<!--<![endif]-->
+		</object>
+	</body>
+</html>

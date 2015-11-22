@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Tutorial: Hello Dojo!</title>
+<style>
+
+* {
+    outline: none !important;
+}
+
+body {
+    margin: 0;
+    padding: 2em;
+    font-family: Lucida Sans,Lucida Grande,Arial !important;
+    font-size: 13px !important;
+    background: white;
+    color: #333;
+}
+
+button {
+	-webkit-transition: background-color 0.2s linear;
+	border-radius:4px;
+	-moz-border-radius: 4px 4px 4px 4px;
+	-moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+	background-color: #E4F2FF;
+	background-image: url("//ajax.googleapis.com/ajax/libs/dojo/1.7.4/dijit/themes/claro/form/images/button.png");
+	background-position: center top;
+	background-repeat: repeat-x;
+	border: 1px solid #769DC0;
+	padding: 2px 8px 4px;
+	font-size:1em;
+}
+
+button:hover {
+	background-color: #AFD9FF;
+	color: #000000;
+}
+
+h1 {
+	font-size:1.5em;
+}
+
+.break
+{
+float:none;
+clear:both;
+}
+
+</style>
+
+	<script>
+		// Instead of using data-dojo-config, we’re creating a dojoConfig object
+		// *before* we load dojo.js; they’re functionally identical.
+		var dojoConfig = {
+			async: true,
+			// This code registers the correct location of the "demo" package
+			// so we can load Dojo from the CDN whilst still being able to
+			// load local modules
+			packages: [{
+				name: "demo",
+				location: location.pathname.replace(/\/[^/]*$/, '')
+			}]
+		};
+	</script>
+
+</head>
+<body>
+    <h1 id="greeting">Hello</h1>
+    <!-- load Dojo -->
+    <script src="http://ajax.googleapis.com/ajax/libs/dojo/1.8.3/dojo/dojo.js"
+               data-dojo-config="async: true"></script>
+	<script>
+		// Require the module we just created
+		require(["demo/myModule"], function(myModule){
+			// Use our module to change the text in the greeting
+			myModule.setText("greeting", "Hello Dojo!");
+
+			// After a few seconds, restore the text to its original state
+			setTimeout(function(){
+				myModule.restoreText("greeting");
+			}, 3000);
+		});
+	</script>
+</body>
+</html>
