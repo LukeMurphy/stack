@@ -1,10 +1,10 @@
+
+
+<br />
+<div id="canvasHolder"></div>
+<br />
 <script src="/projects/stack/drawing/js/drawing.js"></script>
 <div>
-	<canvas id="canvas" width=840 height=740></canvas>
-</div>
-<br />
-<div>
-	
 	<input type="button" value="Save" id="btn" size="30" onclick="save()">
 	<input type="button" value="Clear" id="clr" size="23" onclick="erase()">
 	<input type="button" value="Color" id="clr" size="23" onclick="useMultiColor=(useMultiColor)?false:true;this.value=(useMultiColor)?'Gray':'Color';">
@@ -13,3 +13,4 @@
 	<input type="button" value="Pen/Heavy" id="clr" size="23" onclick="usePenMode =(usePenMode)?false:true;this.value=(usePenMode)?'Mouse':'Pen/Heavy';">
 <div id = "debug" style="position:relative; top:50px; left; 10px; width:200px; "></div>
 </div>
+

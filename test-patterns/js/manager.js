@@ -1,4 +1,6 @@
 var doLoop = true;
+
+/*
 var nextProject = "../three/index.html";
 window.addEventListener("keydown", toggleLoopTimer, true);
 
@@ -9,3 +11,4 @@ function toggleLoopTimer(e) {
 		doLoop = (doLoop) ? false : true;
 	}
 }
+*/

@@ -1,0 +1,26 @@
+body {
+	margin: 0px auto;
+
+}
+
+#mainContainer {
+	border: 0px black solid;
+	height: auto;
+	width: auto;
+	overflow: hidden;
+	background-color: #333333;
+	color: #ffffff
+}
+
+#titleContainer {
+	border: 0px black solid;
+	padding: 10px;
+	height: auto;
+	width: 80%;
+	overflow: hidden;
+	background-color: #333333;
+	color: #ffffff;
+	position:absolute;
+	font-family: sans-serif;
+	text-align: left;
+}

@@ -45,7 +45,13 @@ function init() {
 
 	document.getElementById('debug').style.visibility = "hidden";
 	pointsArray = new Array();
-	canvas = document.getElementById('canvas');
+
+	canvasHolderDiv = document.getElementById('canvasHolder');
+	canvas = document.createElement("canvas");
+	canvas.width = window.innerWidth * .9;
+	canvas.height = window.innerHeight * .7;
+	canvasHolderDiv.appendChild(canvas);
+	
 	ctx = canvas.getContext("2d");
 	w = canvas.width;
 	h = canvas.height;

@@ -43,7 +43,7 @@ function init() {
 	//ctx.rotate(5.1 * Math.random() / 180 * Math.PI);
 	ctx.translate(0, 0);
 
-	drawTableau(canvasWidth, canvasHeight, "black", "black");
+	//drawTableau(canvasWidth, canvasHeight, "black", "black");
 	ctx.shadowColor = null;
 	ctx.shadowBlur = 0;
 
@@ -263,7 +263,6 @@ function createBlockArrays() {
 		}
 	}
 	lastBlock = blockArray[0];
-
 }
 
 function drawBlock() {

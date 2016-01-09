@@ -72,7 +72,13 @@ window.onload = init;
 function init() {
 
 	//document.getElementById('debug').style.visibility = "hidden";
-	canvas = document.getElementById('canvas');
+
+	canvasHolderDiv = document.getElementById('canvasHolder');
+	canvas = document.createElement("canvas");
+	canvas.width = window.innerWidth * .9;
+	canvas.height = window.innerHeight * .7;
+	canvasHolderDiv.appendChild(canvas);
+
 	ctx = canvas.getContext("2d");
 	//ctx.rotate(6 / 180 * Math.PI);
 
