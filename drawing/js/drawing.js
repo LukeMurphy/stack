@@ -38,6 +38,7 @@ var useMultiColor = false;
 var useVariableDist = false;
 var usePenMode = false;
 var lightMode = false;
+var	ratio = 2;
 
 window.onload = init;
 
@@ -48,8 +49,8 @@ function init() {
 
 	canvasHolderDiv = document.getElementById('canvasHolder');
 	canvas = document.createElement("canvas");
-	canvas.width = window.innerWidth * .9;
-	canvas.height = window.innerHeight * .7;
+	canvas.width = window.innerWidth * .9 * ratio;
+	canvas.height = window.innerHeight * .9 * ratio;
 	canvasHolderDiv.appendChild(canvas);
 	
 	ctx = canvas.getContext("2d");
@@ -58,6 +59,7 @@ function init() {
 	canvasColor = canvasColor;
 	ctx.fillStyle = canvasColor;
 	ctx.fillRect(0, 0, w, h);
+	//ctx.scale(ratio, ratio);
 	
 
 	canvas.addEventListener("mousemove", function(e) {
@@ -159,7 +161,7 @@ function pointsDraw() {
 	startPoint = (endPoint - trailingPoints > 0) ? endPoint - trailingPoints : 0;
 	var pointsToDraw = endPoint - startPoint - 1;
 	
-	console.log(pointsToDraw);
+	//console.log(pointsToDraw);
 
 	for (var n = startPoint; n < endPoint; n++) {
 		ctx.beginPath();
@@ -236,7 +238,7 @@ function erase() {
 }
 
 function save() {
-	canvas = document.getElementById("canvas");
+	//canvas = document.getElementById("canvas");
 	var dlimg = canvas.toDataURL("image/jpg");
 	window.open(dlimg, "image.jpg");
 }
@@ -284,8 +286,8 @@ function findxy(res, e) {
 
 	//sets the new colors continuously
 	if (useMultiColor) {
-		setNewColors();
-		if (Math.random() > .7) {
+		if (Math.random() > .87) setNewColors();
+		if (Math.random() > .97) {
 			r = g = b = 50;
 		}
 	}
@@ -322,6 +324,7 @@ function findxy(res, e) {
 	}
 }
 function findxyt(res, e) {
+
 
 	//keeps the arrow cursor in view
 	canvas.style.cursor = "default";
