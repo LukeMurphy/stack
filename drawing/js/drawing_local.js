@@ -20,7 +20,7 @@ var intermediatePointsFactor = 100;
 var intermediatePointsLimit = 2;
 
 var trailingPointsFactor = .2;
-var trailingPointsLimit = 30;
+var trailingPointsLimit = 40;
 
 var lineDistranceFactor = 500;
 var lineDistranceFactorLimit = .31;
@@ -38,6 +38,10 @@ var useMultiColor = false;
 var useVariableDist = false;
 var usePenMode = false;
 var lightMode = false;
+var	ratio = 2;
+
+var newColorProbabilty = .13
+var revertToGrayProbability = .03
 
 window.onload = init;
 
@@ -48,8 +52,8 @@ function init() {
 
 	canvasHolderDiv = document.getElementById('canvasHolder');
 	canvas = document.createElement("canvas");
-	canvas.width = window.innerWidth * .9;
-	canvas.height = window.innerHeight * .7;
+	canvas.width = window.innerWidth * .9 * ratio;
+	canvas.height = window.innerHeight * .9 * ratio;
 	canvasHolderDiv.appendChild(canvas);
 	
 	ctx = canvas.getContext("2d");
@@ -58,6 +62,7 @@ function init() {
 	canvasColor = canvasColor;
 	ctx.fillStyle = canvasColor;
 	ctx.fillRect(0, 0, w, h);
+	//ctx.scale(ratio, ratio);
 	
 
 	canvas.addEventListener("mousemove", function(e) {
@@ -85,6 +90,18 @@ function init() {
 	canvas.addEventListener("touchleave", function(e) {
 		findxyt('out', e);
 	}, false);
+
+	var link = document.createElement('a');
+	link.className="button";
+    link.innerHTML = 'DOWNLOAD';
+	link.addEventListener('click', function(ev) {
+    	link.href = canvas.toDataURL();
+    	link.download = "drawing.png";
+		}, false);
+	document.getElementById("tools").appendChild(link);
+
+	document.getElementById("newColorProbabilty").value = newColorProbabilty
+	document.getElementById("revertToGrayProbability").value = revertToGrayProbability
 }
 
 function draw() {
@@ -126,13 +143,11 @@ function interpolate(p1, p2) {
 
 	trailingPoints = Math.round(d / trailingPointsFactor);
 
-	if (trailingPoints < 10)
-		trailingPoints = 10;
-	if (trailingPoints > trailingPointsLimit)
-		trailingPoints = trailingPointsLimit;
+	if (trailingPoints < 10)  { trailingPoints = 10; }
+	if (trailingPoints > trailingPointsLimit) trailingPoints = trailingPointsLimit;
 
 	//overrides
-	trailingPoints = trailingPointsLimit;
+	//trailingPoints = trailingPointsLimit;
 	intermediatePoints = intermediatePointsLimit;
 
 	for (var q = 0; q < intermediatePoints; q++) {
@@ -148,7 +163,6 @@ function interpolate(p1, p2) {
 			drawn : false
 		});
 	}
-
 }
 
 function pointsDraw() {
@@ -235,10 +249,12 @@ function erase() {
 	//}
 }
 
-function save() {
+function save(arg) {
 	//canvas = document.getElementById("canvas");
-	var dlimg = canvas.toDataURL("image/jpg");
-	window.open(dlimg, "image.jpg");
+	window.location.href=canvas.toDataURL("image/png;base64");
+	//var dlimg = canvas.toDataURL("image/png;base64");
+	arg.download = "image.png";
+	//window.open(dlimg, "");
 }
 
 function setNewColors() {
@@ -284,8 +300,8 @@ function findxy(res, e) {
 
 	//sets the new colors continuously
 	if (useMultiColor) {
-		if (Math.random() > .87) setNewColors();
-		if (Math.random() > .97) {
+		if (Math.random() < newColorProbabilty ) setNewColors();
+		if (Math.random() < revertToGrayProbability) {
 			r = g = b = grayLevel;
 		}
 	}
@@ -321,7 +337,9 @@ function findxy(res, e) {
 		}
 	}
 }
+
 function findxyt(res, e) {
+
 
 	//keeps the arrow cursor in view
 	canvas.style.cursor = "default";
